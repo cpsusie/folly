@@ -20,7 +20,7 @@ option(MSVC_ENABLE_LEAN_AND_MEAN_WINDOWS "If enabled, define WIN32_LEAN_AND_MEAN
 option(MSVC_ENABLE_LTCG "If enabled, use Link Time Code Generation for Release builds." OFF)
 option(MSVC_ENABLE_PARALLEL_BUILD "If enabled, build multiple source files in parallel." ON)
 option(MSVC_ENABLE_STATIC_ANALYSIS "If enabled, do more complex static analysis and generate warnings appropriately." OFF)
-option(MSVC_USE_STATIC_RUNTIME "If enabled, build against the static, rather than the dynamic, runtime." OFF)
+option(MSVC_USE_STATIC_RUNTIME "If enabled, build against the static, rather than the dynamic, runtime." ON)
 option(MSVC_SUPPRESS_BOOST_CONFIG_OUTDATED "If enabled, suppress Boost's warnings about the config being out of date." ON)
 
 # Alas, option() doesn't support string values.
@@ -39,7 +39,7 @@ if (NOT MSVC_FAVORED_ARCHITECTURE STREQUAL "blend" AND NOT MSVC_FAVORED_ARCHITEC
   message(FATAL_ERROR "MSVC_FAVORED_ARCHITECTURE must be set to one of exactly, 'blend', 'AMD64', 'INTEL64', or 'ATOM'! Got '${MSVC_FAVORED_ARCHITECTURE}' instead!")
 endif()
 
-set(MSVC_LANGUAGE_VERSION "c++17" CACHE STRING "One of 'c++17', or 'c++latest'. This determines which version of C++ to compile as.")
+set(MSVC_LANGUAGE_VERSION "c++latest" CACHE STRING "One of 'c++17', or 'c++latest'. This determines which version of C++ to compile as.")
 set_property(
   CACHE MSVC_LANGUAGE_VERSION
   PROPERTY STRINGS
