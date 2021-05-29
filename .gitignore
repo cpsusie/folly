@@ -36,3 +36,4 @@ folly/FingerprintTables.cpp
 /.vs/cjm_folly
 /.vs
 /out/build
+/CMakeCache.txt
