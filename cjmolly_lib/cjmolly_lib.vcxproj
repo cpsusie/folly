@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{e5b78511-b481-4a93-9183-d269c8201e2b}</ProjectGuid>
+    <RootNamespace>cjmollylib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>E:\Source\Repos\cjm_folly;$(IncludePath)</IncludePath>
+    <SourcePath>E:\Source\Repos\cjm_folly\folly;$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>E:\Source\Repos\cjm_folly;$(IncludePath)</IncludePath>
+    <SourcePath>E:\Source\Repos\cjm_folly\folly;$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+    <VcpkgTriplet>x64-windows-static-follydev</VcpkgTriplet>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+    <VcpkgTriplet>x64-windows-static-follydev</VcpkgTriplet>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;_WINDOWS;GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <PrecompiledHeaderOutputFile />
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;_WINDOWS;GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <PrecompiledHeaderOutputFile />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\folly\memcpy.S" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\folly\AtomicHashArray-inl.h" />
+    <ClInclude Include="..\folly\AtomicHashArray.h" />
+    <ClInclude Include="..\folly\AtomicHashMap-inl.h" />
+    <ClInclude Include="..\folly\AtomicHashMap.h" />
+    <ClInclude Include="..\folly\AtomicIntrusiveLinkedList.h" />
+    <ClInclude Include="..\folly\AtomicLinkedList.h" />
+    <ClInclude Include="..\folly\AtomicUnorderedMap.h" />
+    <ClInclude Include="..\folly\Benchmark.h" />
+    <ClInclude Include="..\folly\BenchmarkUtil.h" />
+    <ClInclude Include="..\folly\Bits.h" />
+    <ClInclude Include="..\folly\CancellationToken-inl.h" />
+    <ClInclude Include="..\folly\CancellationToken.h" />
+    <ClInclude Include="..\folly\Chrono.h" />
+    <ClInclude Include="..\folly\ClockGettimeWrappers.h" />
+    <ClInclude Include="..\folly\ConcurrentBitSet.h" />
+    <ClInclude Include="..\folly\ConcurrentLazy.h" />
+    <ClInclude Include="..\folly\ConcurrentSkipList-inl.h" />
+    <ClInclude Include="..\folly\ConcurrentSkipList.h" />
+    <ClInclude Include="..\folly\ConstexprMath.h" />
+    <ClInclude Include="..\folly\ConstructorCallback.h" />
+    <ClInclude Include="..\folly\Conv.h" />
+    <ClInclude Include="..\folly\CPortability.h" />
+    <ClInclude Include="..\folly\CppAttributes.h" />
+    <ClInclude Include="..\folly\CpuId.h" />
+    <ClInclude Include="..\folly\DefaultKeepAliveExecutor.h" />
+    <ClInclude Include="..\folly\Demangle.h" />
+    <ClInclude Include="..\folly\DiscriminatedPtr.h" />
+    <ClInclude Include="..\folly\dynamic-inl.h" />
+    <ClInclude Include="..\folly\dynamic.h" />
+    <ClInclude Include="..\folly\DynamicConverter.h" />
+    <ClInclude Include="..\folly\Exception.h" />
+    <ClInclude Include="..\folly\ExceptionString.h" />
+    <ClInclude Include="..\folly\ExceptionWrapper-inl.h" />
+    <ClInclude Include="..\folly\ExceptionWrapper.h" />
+    <ClInclude Include="..\folly\Executor.h" />
+    <ClInclude Include="..\folly\Expected.h" />
+    <ClInclude Include="..\folly\FBString.h" />
+    <ClInclude Include="..\folly\FBVector.h" />
+    <ClInclude Include="..\folly\File.h" />
+    <ClInclude Include="..\folly\FileUtil.h" />
+    <ClInclude Include="..\folly\Fingerprint.h" />
+    <ClInclude Include="..\folly\FixedString.h" />
+    <ClInclude Include="..\folly\folly-config.h" />
+    <ClInclude Include="..\folly\FollyMemcpy.h" />
+    <ClInclude Include="..\folly\Format-inl.h" />
+    <ClInclude Include="..\folly\Format.h" />
+    <ClInclude Include="..\folly\FormatArg.h" />
+    <ClInclude Include="..\folly\FormatTraits.h" />
+    <ClInclude Include="..\folly\Function.h" />
+    <ClInclude Include="..\folly\GLog.h" />
+    <ClInclude Include="..\folly\GroupVarint.h" />
+    <ClInclude Include="..\folly\Hash.h" />
+    <ClInclude Include="..\folly\Indestructible.h" />
+    <ClInclude Include="..\folly\IndexedMemPool.h" />
+    <ClInclude Include="..\folly\IntrusiveList.h" />
+    <ClInclude Include="..\folly\IPAddress.h" />
+    <ClInclude Include="..\folly\IPAddressException.h" />
+    <ClInclude Include="..\folly\IPAddressV4.h" />
+    <ClInclude Include="..\folly\IPAddressV6.h" />
+    <ClInclude Include="..\folly\json.h" />
+    <ClInclude Include="..\folly\json_patch.h" />
+    <ClInclude Include="..\folly\json_pointer.h" />
+    <ClInclude Include="..\folly\Lazy.h" />
+    <ClInclude Include="..\folly\Likely.h" />
+    <ClInclude Include="..\folly\LockTraits.h" />
+    <ClInclude Include="..\folly\MacAddress.h" />
+    <ClInclude Include="..\folly\MapUtil.h" />
+    <ClInclude Include="..\folly\Math.h" />
+    <ClInclude Include="..\folly\Memory.h" />
+    <ClInclude Include="..\folly\MicroLock.h" />
+    <ClInclude Include="..\folly\MicroSpinLock.h" />
+    <ClInclude Include="..\folly\MoveWrapper.h" />
+    <ClInclude Include="..\folly\MPMCPipeline.h" />
+    <ClInclude Include="..\folly\MPMCQueue.h" />
+    <ClInclude Include="..\folly\Optional.h" />
+    <ClInclude Include="..\folly\Overload.h" />
+    <ClInclude Include="..\folly\PackedSyncPtr.h" />
+    <ClInclude Include="..\folly\Padded.h" />
+    <ClInclude Include="..\folly\Poly-inl.h" />
+    <ClInclude Include="..\folly\Poly.h" />
+    <ClInclude Include="..\folly\PolyException.h" />
+    <ClInclude Include="..\folly\Portability.h" />
+    <ClInclude Include="..\folly\Preprocessor.h" />
+    <ClInclude Include="..\folly\ProducerConsumerQueue.h" />
+    <ClInclude Include="..\folly\Random-inl.h" />
+    <ClInclude Include="..\folly\Random.h" />
+    <ClInclude Include="..\folly\Range.h" />
+    <ClInclude Include="..\folly\Replaceable.h" />
+    <ClInclude Include="..\folly\RWSpinLock.h" />
+    <ClInclude Include="..\folly\ScopeGuard.h" />
+    <ClInclude Include="..\folly\SharedMutex.h" />
+    <ClInclude Include="..\folly\Singleton-inl.h" />
+    <ClInclude Include="..\folly\Singleton.h" />
+    <ClInclude Include="..\folly\SingletonThreadLocal.h" />
+    <ClInclude Include="..\folly\small_vector.h" />
+    <ClInclude Include="..\folly\SocketAddress.h" />
+    <ClInclude Include="..\folly\sorted_vector_types.h" />
+    <ClInclude Include="..\folly\SpinLock.h" />
+    <ClInclude Include="..\folly\stop_watch.h" />
+    <ClInclude Include="..\folly\String-inl.h" />
+    <ClInclude Include="..\folly\String.h" />
+    <ClInclude Include="..\folly\Subprocess.h" />
+    <ClInclude Include="..\folly\Synchronized.h" />
+    <ClInclude Include="..\folly\SynchronizedPtr.h" />
+    <ClInclude Include="..\folly\ThreadCachedInt.h" />
+    <ClInclude Include="..\folly\ThreadLocal.h" />
+    <ClInclude Include="..\folly\TimeoutQueue.h" />
+    <ClInclude Include="..\folly\TokenBucket.h" />
+    <ClInclude Include="..\folly\Traits.h" />
+    <ClInclude Include="..\folly\Try-inl.h" />
+    <ClInclude Include="..\folly\Try.h" />
+    <ClInclude Include="..\folly\Unicode.h" />
+    <ClInclude Include="..\folly\Unit.h" />
+    <ClInclude Include="..\folly\Uri-inl.h" />
+    <ClInclude Include="..\folly\Uri.h" />
+    <ClInclude Include="..\folly\UTF8String.h" />
+    <ClInclude Include="..\folly\Utility.h" />
+    <ClInclude Include="..\folly\Varint.h" />
+    <ClInclude Include="..\folly\VirtualExecutor.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\folly\CancellationToken.cpp" />
+    <ClCompile Include="..\folly\ClockGettimeWrappers.cpp" />
+    <ClCompile Include="..\folly\Conv.cpp" />
+    <ClCompile Include="..\folly\Demangle.cpp" />
+    <ClCompile Include="..\folly\ExceptionWrapper.cpp" />
+    <ClCompile Include="..\folly\Executor.cpp" />
+    <ClCompile Include="..\folly\FollyMemcpy.cpp" />
+    <ClCompile Include="..\folly\Format.cpp" />
+    <ClCompile Include="..\folly\GroupVarint.cpp" />
+    <ClCompile Include="..\folly\MicroLock.cpp" />
+    <ClCompile Include="..\folly\Random.cpp" />
+    <ClCompile Include="..\folly\ScopeGuard.cpp" />
+    <ClCompile Include="..\folly\SharedMutex.cpp" />
+    <ClCompile Include="..\folly\Singleton.cpp" />
+    <ClCompile Include="..\folly\String.cpp" />
+    <ClCompile Include="..\folly\TimeoutQueue.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

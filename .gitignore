@@ -37,3 +37,5 @@ folly/FingerprintTables.cpp
 /.vs
 /out/build
 /CMakeCache.txt
+/cjmolly_lib/.vs/cjmolly_lib/v16
+/cjmolly_lib/x64
