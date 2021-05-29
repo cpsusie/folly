@@ -35,3 +35,4 @@ folly/FingerprintTables.cpp
 /out/build/x64-Debug
 /.vs/cjm_folly
 /.vs
+/out/build
