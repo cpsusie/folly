@@ -47,11 +47,13 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>E:\Source\Repos\cjm_folly;$(IncludePath)</IncludePath>
     <SourcePath>E:\Source\Repos\cjm_folly\folly;$(SourcePath)</SourcePath>
+    <PublicIncludeDirectories>E:\Source\Repos\cjm_folly;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>E:\Source\Repos\cjm_folly;$(IncludePath)</IncludePath>
     <SourcePath>E:\Source\Repos\cjm_folly\folly;$(SourcePath)</SourcePath>
+    <PublicIncludeDirectories>E:\Source\Repos\cjm_folly;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <VcpkgUseStatic>true</VcpkgUseStatic>
@@ -82,6 +84,9 @@
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>iphlpapi.lib;shlwapi.lib;WS2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -109,6 +114,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>iphlpapi.lib;shlwapi.lib;WS2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="..\folly\memcpy.S" />
@@ -128,6 +136,7 @@
     <ClInclude Include="..\folly\CancellationToken.h" />
     <ClInclude Include="..\folly\Chrono.h" />
     <ClInclude Include="..\folly\ClockGettimeWrappers.h" />
+    <ClInclude Include="..\folly\concurrency\CacheLocality.h" />
     <ClInclude Include="..\folly\ConcurrentBitSet.h" />
     <ClInclude Include="..\folly\ConcurrentLazy.h" />
     <ClInclude Include="..\folly\ConcurrentSkipList-inl.h" />
@@ -140,6 +149,8 @@
     <ClInclude Include="..\folly\CpuId.h" />
     <ClInclude Include="..\folly\DefaultKeepAliveExecutor.h" />
     <ClInclude Include="..\folly\Demangle.h" />
+    <ClInclude Include="..\folly\detail\Futex-inl.h" />
+    <ClInclude Include="..\folly\detail\Futex.h" />
     <ClInclude Include="..\folly\DiscriminatedPtr.h" />
     <ClInclude Include="..\folly\dynamic-inl.h" />
     <ClInclude Include="..\folly\dynamic.h" />
@@ -176,6 +187,8 @@
     <ClInclude Include="..\folly\json.h" />
     <ClInclude Include="..\folly\json_patch.h" />
     <ClInclude Include="..\folly\json_pointer.h" />
+    <ClInclude Include="..\folly\lang\SafeAssert.h" />
+    <ClInclude Include="..\folly\lang\ToAscii.h" />
     <ClInclude Include="..\folly\Lazy.h" />
     <ClInclude Include="..\folly\Likely.h" />
     <ClInclude Include="..\folly\LockTraits.h" />
@@ -188,6 +201,7 @@
     <ClInclude Include="..\folly\MoveWrapper.h" />
     <ClInclude Include="..\folly\MPMCPipeline.h" />
     <ClInclude Include="..\folly\MPMCQueue.h" />
+    <ClInclude Include="..\folly\net\NetworkSocket.h" />
     <ClInclude Include="..\folly\Optional.h" />
     <ClInclude Include="..\folly\Overload.h" />
     <ClInclude Include="..\folly\PackedSyncPtr.h" />
@@ -196,6 +210,9 @@
     <ClInclude Include="..\folly\Poly.h" />
     <ClInclude Include="..\folly\PolyException.h" />
     <ClInclude Include="..\folly\Portability.h" />
+    <ClInclude Include="..\folly\portability\Sockets.h" />
+    <ClInclude Include="..\folly\portability\SysResource.h" />
+    <ClInclude Include="..\folly\portability\Unistd.h" />
     <ClInclude Include="..\folly\Preprocessor.h" />
     <ClInclude Include="..\folly\ProducerConsumerQueue.h" />
     <ClInclude Include="..\folly\Random-inl.h" />
@@ -216,6 +233,8 @@
     <ClInclude Include="..\folly\String-inl.h" />
     <ClInclude Include="..\folly\String.h" />
     <ClInclude Include="..\folly\Subprocess.h" />
+    <ClInclude Include="..\folly\synchronization\ParkingLot.h" />
+    <ClInclude Include="..\folly\synchronization\SanitizeThread.h" />
     <ClInclude Include="..\folly\Synchronized.h" />
     <ClInclude Include="..\folly\SynchronizedPtr.h" />
     <ClInclude Include="..\folly\ThreadCachedInt.h" />
@@ -237,19 +256,28 @@
   <ItemGroup>
     <ClCompile Include="..\folly\CancellationToken.cpp" />
     <ClCompile Include="..\folly\ClockGettimeWrappers.cpp" />
+    <ClCompile Include="..\folly\concurrency\CacheLocality.cpp" />
     <ClCompile Include="..\folly\Conv.cpp" />
     <ClCompile Include="..\folly\Demangle.cpp" />
+    <ClCompile Include="..\folly\detail\Futex.cpp" />
     <ClCompile Include="..\folly\ExceptionWrapper.cpp" />
     <ClCompile Include="..\folly\Executor.cpp" />
     <ClCompile Include="..\folly\FollyMemcpy.cpp" />
     <ClCompile Include="..\folly\Format.cpp" />
     <ClCompile Include="..\folly\GroupVarint.cpp" />
+    <ClCompile Include="..\folly\lang\SafeAssert.cpp" />
+    <ClCompile Include="..\folly\lang\ToAscii.cpp" />
     <ClCompile Include="..\folly\MicroLock.cpp" />
+    <ClCompile Include="..\folly\portability\Sockets.cpp" />
+    <ClCompile Include="..\folly\portability\SysResource.cpp" />
+    <ClCompile Include="..\folly\portability\Unistd.cpp" />
     <ClCompile Include="..\folly\Random.cpp" />
     <ClCompile Include="..\folly\ScopeGuard.cpp" />
     <ClCompile Include="..\folly\SharedMutex.cpp" />
     <ClCompile Include="..\folly\Singleton.cpp" />
     <ClCompile Include="..\folly\String.cpp" />
+    <ClCompile Include="..\folly\synchronization\ParkingLot.cpp" />
+    <ClCompile Include="..\folly\synchronization\SanitizeThread.cpp" />
     <ClCompile Include="..\folly\TimeoutQueue.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
